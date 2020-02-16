@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Timer View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="TimerViewController" customModule="tiMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hel-VY-Xzp">
+                                <rect key="frame" x="0.0" y="88" width="414" height="239"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kVx-d4-pMX">
+                                <rect key="frame" x="0.0" y="328.5" width="414" height="547.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="timeCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="timeCell" rowHeight="88" id="vuc-cL-EMp" customClass="TimeTableViewCell" customModule="tiMe">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vuc-cL-EMp" id="ueH-fh-f99">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3K-9Y-0mE">
+                                                    <rect key="frame" x="273" y="16" width="121" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="121" id="Ovm-hm-iem"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="121" id="dWg-aG-zF8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Time note" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StG-cf-Wj6">
+                                                    <rect key="frame" x="20" y="16" width="245" height="56"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="StG-cf-Wj6" secondAttribute="bottom" constant="16" id="NTX-CX-ngg"/>
+                                                <constraint firstItem="StG-cf-Wj6" firstAttribute="leading" secondItem="ueH-fh-f99" secondAttribute="leading" constant="20" id="VHf-NC-b2h"/>
+                                                <constraint firstAttribute="bottom" secondItem="s3K-9Y-0mE" secondAttribute="bottom" constant="16" id="VW0-fb-x6p"/>
+                                                <constraint firstItem="s3K-9Y-0mE" firstAttribute="top" secondItem="ueH-fh-f99" secondAttribute="top" constant="16" id="XHx-hA-3Qy"/>
+                                                <constraint firstItem="StG-cf-Wj6" firstAttribute="top" secondItem="ueH-fh-f99" secondAttribute="top" constant="16" id="g4z-PX-58a"/>
+                                                <constraint firstItem="s3K-9Y-0mE" firstAttribute="leading" secondItem="StG-cf-Wj6" secondAttribute="trailing" constant="8" symbolic="YES" id="ikL-WH-Cte"/>
+                                                <constraint firstAttribute="trailing" secondItem="s3K-9Y-0mE" secondAttribute="trailing" constant="20" id="zWE-sF-654"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timeLabel" destination="s3K-9Y-0mE" id="bWc-Bw-2rb"/>
+                                            <outlet property="timeNoteLabel" destination="StG-cf-Wj6" id="a43-e2-2qf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="i74-G4-eJu"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="qfV-Nw-6r6"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZx-Gt-HhB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Time Tracker" id="8ju-i6-D58">
+                                        <barButtonItem key="leftBarButtonItem" title="Reset" id="qCn-PK-mnS">
+                                            <connections>
+                                                <action selector="resetButtonClicked:" destination="BYZ-38-t0r" id="WOb-Gx-lhV"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="9a3-Lf-kM4">
+                                            <connections>
+                                                <action selector="clearAllListButton:" destination="BYZ-38-t0r" id="TNb-K9-0pb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjb-hV-aXW">
+                                <rect key="frame" x="82.5" y="168" width="249.5" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="fD7-N1-vMG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="64"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="DZx-Gt-HhB" firstAttribute="trailing" secondItem="kVx-d4-pMX" secondAttribute="trailing" id="071-r2-fS9"/>
+                            <constraint firstItem="Hel-VY-Xzp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1My-3G-rmw"/>
+                            <constraint firstItem="kVx-d4-pMX" firstAttribute="top" secondItem="Hjb-hV-aXW" secondAttribute="bottom" constant="80.5" id="CU7-fB-cDo"/>
+                            <constraint firstItem="kVx-d4-pMX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CZq-LC-B2C"/>
+                            <constraint firstItem="Hel-VY-Xzp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HeL-mt-EWp"/>
+                            <constraint firstItem="Hjb-hV-aXW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JvC-dc-3wc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hjb-hV-aXW" secondAttribute="trailing" id="NT1-bd-io7"/>
+                            <constraint firstItem="DZx-Gt-HhB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bXJ-TN-1PE"/>
+                            <constraint firstItem="Hjb-hV-aXW" firstAttribute="top" secondItem="DZx-Gt-HhB" secondAttribute="bottom" constant="80" id="hGW-GC-rIQ"/>
+                            <constraint firstItem="Hjb-hV-aXW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hUl-yz-MPK"/>
+                            <constraint firstItem="DZx-Gt-HhB" firstAttribute="leading" secondItem="kVx-d4-pMX" secondAttribute="leading" id="nH3-6M-NYi"/>
+                            <constraint firstItem="kVx-d4-pMX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rqf-Oi-N4H"/>
+                            <constraint firstItem="kVx-d4-pMX" firstAttribute="top" secondItem="Hel-VY-Xzp" secondAttribute="bottom" constant="8" symbolic="YES" id="tDX-Bt-W6f"/>
+                            <constraint firstItem="Hel-VY-Xzp" firstAttribute="top" secondItem="DZx-Gt-HhB" secondAttribute="bottom" symbolic="YES" id="yRq-wa-2Ze"/>
+                            <constraint firstAttribute="bottom" secondItem="kVx-d4-pMX" secondAttribute="bottom" constant="20" symbolic="YES" id="zGo-ri-COA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="resetButton" destination="qCn-PK-mnS" id="Awe-aI-RdL"/>
+                        <outlet property="timeLabel" destination="Hjb-hV-aXW" id="Wzu-ZM-NwT"/>
+                        <outlet property="timerScreenView" destination="Hel-VY-Xzp" id="23B-dN-b62"/>
+                        <outlet property="timesTableView" destination="kVx-d4-pMX" id="TYE-QE-Gkk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>
