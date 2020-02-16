@@ -6,7 +6,6 @@
 //  Copyright © 2020 Anna Bibyk. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 //MARK: - Table View configuration
@@ -53,24 +52,30 @@ extension TimerViewController:  UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension TimerViewController: UITextViewDelegate {
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
+extension TimerViewController : UITextViewDelegate {
     
     func hideKeyboardWhenTappedAround() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
+        let tapGestureReconizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGestureReconizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureReconizer)
     }
     
     @objc func hideKeyboard() {
-        view.endEditing(true)
+         view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     // MARK: - Character limits
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
         let note = (textView.text as NSString).replacingCharacters(in: range, with: text)
         
         return note.count < 255

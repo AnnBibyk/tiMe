@@ -167,9 +167,11 @@ class TimerViewController: UIViewController {
         
         alertController.view.addObserver(self, forKeyPath: "bounds", options: NSKeyValueObservingOptions.new, context: nil)
         textView.backgroundColor = UIColor.white
+        textView.returnKeyType = .done
         textView.text = ""
         textView.textContainerInset = UIEdgeInsets.init(top: 8, left: 5, bottom: 8, right: 5)
         textView.delegate = self
+        textView.resignFirstResponder()
         hideKeyboardWhenTappedAround()
         alertController.view.addSubview(self.textView)
         
